@@ -1,0 +1,82 @@
+<view class="gory">
+<loading hidden="{{disabled}}">
+    加载中...
+  </loading>
+  <view class="gory_img">
+    <view class="user">
+      <text>姓名: {{name}}</text>
+      <text>工号: {{employeNum}}</text>
+    </view>
+    <image class="img" src="../../imgs/back_b.png"></image>
+  </view>
+  <view class="gory_list">
+    <view class="list" wx:for="{{['收藏列表', '下载列表', '最近浏览']}}" wx:for-item="item" wx:key="key">
+      <text class="list_text {{currentTabIndex == index? 'selected':''}}" data-index="{{index}}" bindtap="onTabItemTap">{{item}}</text>
+    </view>
+  </view>
+  <view class="gory_file">
+    
+     <!-- 收藏列表 -->
+    <scroll-view scroll-y="true" hidden="{{currentTabIndex!=0}}" style="height:650rpx" bindscrolltolower="onReachBottom">
+      <view class="file_container" wx:for="{{collectionList}}" wx:for-item="item" wx:key="{{index}}">
+        <text class="file_name" data-url="{{item.pdf_file.url}}" data-id="{{item.id}}" bindtap="openDocuments">{{item.name}}</text>
+        <view class="edit_img">
+          <!-- 下载 -->
+          <image class="downImg" src="../../imgs/down_b.png" data-item="{{item}}" bindtap="downLoadFile"></image>
+          <!-- 取消收藏 -->
+          <image class="collectImg" wx:if="{{item.is_c}}" data-id="{{item.id}}" src="../../imgs/collected_b.png" bindtap="cancelCollect"></image>
+          <!-- 收藏 -->
+          <image class="collectImg" wx:else data-id="{{item.id}}" src="../../imgs/collect_b.png" bindtap="collect"></image> 
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 下载列表 -->
+    <scroll-view hidden="{{currentTabIndex!=1}}">
+      <view class="edit">
+        <view class="allCheck" wx:if="{{edit}}">
+          <!-- 全选 -->
+          <block wx:if="{{!select_all}}">
+            <view bindtap="select_all">
+              <image src="../../imgs/check.png"></image>
+              <text>全选</text>
+            </view>
+          </block>
+          <!-- 取消全选 -->
+          <block wx:if="{{select_all}}">
+            <view bindtap="select_none">
+              <image src="../../imgs/checked.png"></image>
+              <text>取消全选</text>
+            </view>
+          </block>
+          <!-- 删除 -->
+          <text class="del" bindtap="del">删除</text>
+        </view>
+        <view class="editBtn" wx:if="{{!edit}}" bindtap="edit">编辑</view>
+        <view class="editBtn" wx:if="{{edit}}" bindtap="cancel_edit">完成</view>
+      </view>
+      <view class="file_container" wx:for="{{downList}}" wx:for-item="i" wx:key="{{index}}" data-id="{{index}}" bindtap="select">
+        <block wx:if="{{edit}}">
+          <image class="fileCheck" wx:if="{{!i.checkStatu}}" src="../../imgs/check.png" data-index="{{index}}" bindtap="clickCheck"></image>
+          <image class="fileCheck" wx:if="{{i.checkStatu}}" src="../../imgs/checked.png" data-index="{{index}}" bindtap="clickCheck"></image>
+        </block>
+        <text class="file_name" data-url="{{i.pdf_file.url}}" data-id="{{item.id}}" bindtap="openDocuments">{{i.name}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 最近浏览 -->
+    <scroll-view hidden="{{currentTabIndex!=2}}" style="height:650rpx" bindscrolltolower="onReachBottom">
+      <view class="file_container" wx:for="{{recentViewList}}" wx:for-item="item" wx:key="{{index}}">
+        <text class="file_name" data-url="{{item.pdf_file.url}}" data-id="{{item.id}}" bindtap="openDocuments">{{item.name}}</text>
+        <view class="edit_img">
+          <image class="downImg" src="../../imgs/down_b.png" data-item="{{item}}" bindtap="downLoadFile"></image>
+          <!-- 取消收藏 -->
+          <image class="collectImg" wx:if="{{item.is_c}}" data-id="{{item.id}}" src="../../imgs/collected_b.png" bindtap="cancelCollect"></image>
+          <!-- 收藏 -->
+          <image class="collectImg" wx:else data-id="{{item.id}}" src="../../imgs/collect_b.png" bindtap="collect"></image> 
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>

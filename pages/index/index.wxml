@@ -1,0 +1,21 @@
+<!-- 首页 -->
+ <view class="box"> 
+  <scroll-view class="left_box" scroll-y>
+    <view class="text_box" wx:for="{{setdata}}" wx:for-item="item" wx:for-index="index" wx:key="key">
+      <view class="title {{currentTabIndex == index? 'selected':''}}" data-index="{{index}}" bindtap="click">
+        <text bindtap="getData">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="right_box" scroll-y="true" >
+    <view class="all_img" wx:for="{{setdata[test].children}}" wx:for-item="items" wx:for-index="index" wx:key="key">
+      <navigator url="../article/article?id={{items.id}}">
+        <image class="right_img" src="{{items.avater}}">
+          <text class="two_text">{{items.name}}</text>
+        </image>
+      </navigator>
+    </view>
+    <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+  </scroll-view>
+ </view> 

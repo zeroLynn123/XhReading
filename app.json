@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/gory/gory",
+    "pages/article/article",
+    "pages/cation/cation",
+    "pages/Modify/Modify"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationBarFontSize": "18"
+  },  
+  "tabBar": {
+    "color": "#cbcbcb",
+    "selectedColor": "#8a0b02",
+    "borderStyle": "#fff",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "imgs/cate2.png",
+        "selectedIconPath": "imgs/cate1.png",
+        "text": "类目"
+      },
+      {
+        "pagePath": "pages/gory/gory",
+        "iconPath": "imgs/people2.png",
+        "selectedIconPath": "imgs/people.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

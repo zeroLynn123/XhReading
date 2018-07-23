@@ -1,0 +1,22 @@
+<view>
+  <loading hidden="{{disabled}}">
+    加载中...
+  </loading>
+  <image class="back" src="../../imgs/back_b.png">
+    <input class="ipt" type="text" placeholder="请输入标题" value="{{searchValue}}" bindinput="searchValueInput">
+    <icon class="searchcion" size='20' type='search' placeholder=""></icon>
+    </input>
+  </image>
+</view>
+<scroll-view scroll-y="true" bindscrolltolower="onReachBottom" class="pull" wx-if="{{isEmpty}}">
+  <view class="file_container" wx:for="{{document}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <text class="file_name" bindtap="openDocuments" data-id="{{item.id}}" data-src="{{item.pdf_file.url}}">{{item.name}}</text>
+    <view class="edit_img">
+      <image class="downImg" bindtap="downData" data-item="{{item}}" data-index="{{index}}" src="../../imgs/down_b.png"></image>
+      <image class="downImg" wx:if="{{item.is_c}}" bindtap="cancelCollect" src="../../imgs/collected_b.png" data-id="{{item.id}}" data-index="{{item.index}}"></image>
+      <image class="downImg" wx:else bindtap="clickCollect" src="../../imgs/collect_b.png" data-id="{{item.id}}" data-index="{{index}}"></image>
+    </view>
+  </view>
+</scroll-view>
+<view class="empty" wx-if="{{!isEmpty}}">暂无文件</view>
+

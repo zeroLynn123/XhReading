@@ -1,0 +1,16 @@
+<!-- 登录页 -->
+<view class="container">
+  <view class="user">
+    <view class="user_msg">
+      <view class="username">
+        <input type="text" bindinput="userNameInput" placeholder="请输入新的密码" placeholder-class="phcolor" />
+      </view>
+      <view class="password">
+        <input type="text" bindinput="passwordInput" password="true" placeholder="请再次输入密码" placeholder-class="phcolor" />
+      </view>
+    </view>
+    <view class="btn">
+      <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="sure"> 确 定 </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!-- 登录页 -->
+<view class="container">
+  <view class="user">
+    <view class="logo">
+      <image src="../../imgs/logo_b.png"></image>
+    </view>
+    <view class="user_msg">
+      <view class="username">
+        <image src="../../imgs/username_b.png"></image>
+        <input type="text" bindinput="userNameInput" placeholder="请输入员工号码" placeholder-class="phcolor" value="{{userName}}" />
+        <icon type="clear" size="20"  wx:if="{{showIcon}}" bindtap='clearText'/>
+      </view>
+      <view class="password">
+        <image src="../../imgs/password_b.png"></image>
+        <input type="text" bindinput="passwordInput" password="true" placeholder="请输入密码" placeholder-class="phcolor"  value="{{passWord}}"/>
+         <icon type="clear" size="20" wx:if="{{showPass}}"   bindtap='clearPass'/>
+      </view>
+      <!-- <view class="text" bindtap="forget">
+        <text class="">忘记密码?</text>
+      </view> -->
+    </view>
+    <view class="btn">
+      <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="logIn"> 登 录 </button>
+    </view>
+  </view>
+</view>

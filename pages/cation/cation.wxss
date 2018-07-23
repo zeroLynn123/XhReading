@@ -1,0 +1,43 @@
+.user {
+  font-size: 15px;
+}
+
+.username, .password {
+  position: relative;
+  line-height: 40rpx;
+}
+
+.password {
+  margin-top: 40rpx;
+}
+
+input {
+  width: 460rpx;
+  height: 60rpx;
+  padding: 10rpx;
+  margin-top: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.phcolor {
+  color: #e5e4e4;
+}
+
+.btn {
+  margin-top: 220rpx;
+}
+
+.btn button {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 50rpx;
+  background-color: #b70b02;
+  color: white;
+  font-size: 16px;
+}
+
+.texts {
+  color: rgb(183, 11, 2);
+  float: right;
+  margin-top: -60rpx;
+}

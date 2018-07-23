@@ -1,0 +1,20 @@
+<!-- 登录页 -->
+<view class="container">
+  <view class="user">
+    <view class="user_msg">
+      <view class="username">
+        <input type="text" bindinput="userNameInput" placeholder="请输入员工号码" placeholder-class="phcolor" />
+      </view>
+      <view class="password">
+        <input type="text" bindinput="passwordInput" password="true" placeholder="请输入手机号码" placeholder-class="phcolor" />
+      </view>
+      <view class="text" bindtap="forget">
+        <input type="text" bindinput="passwordInput" password="true" placeholder="验证码" placeholder-class="phcolor" />
+        <text class="texts">发送验证码</text>
+      </view>
+    </view>
+    <view class="btn">
+      <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="logIn"> 确 定 </button>
+    </view>
+  </view>
+</view>
